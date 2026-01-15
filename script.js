@@ -1,5 +1,7 @@
+// track the game score
 let score = {"computerScore": 0, "humanScore": 0};
 
+// compute random integer
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
@@ -30,4 +32,45 @@ function getHumanChoice(){
     return CHOICES[choiceIndex]
 }
 
-console.log(getHumanChoice())
+// plays a single round
+function playRound(humanChoice, computerChoice) {
+
+    let roundWinner;
+    switch(true) {
+        case computerChoice === humanChoice:
+            roundWinner = 'Tie'
+            break;
+        case humanChoice === 'rock':
+            if (computerChoice === 'paper') {
+                roundWinner = 'Computer';
+            } else {
+                roundWinner = 'Human';
+            }
+            break;
+        case humanChoice === 'paper':
+            if (computerChoice === 'scissors') {
+                roundWinner = 'Computer';
+            } else {
+                roundWinner = 'Human';
+            }
+            break;
+        case humanChoice === 'scissors':
+            if (computerChoice === 'rock') {
+                roundWinner = 'Computer';
+            } else {
+                roundWinner = 'Human';
+            }
+            break;
+    }
+
+    if (roundWinner === 'Tie') {
+        console.log(`You said ${humanChoice}, computer said ${computerChoice} - it\'s a tie !`);
+    } else {
+        console.log(`You said ${humanChoice}, computer said ${computerChoice} - ${roundWinner} win this round !`);
+
+    }
+    
+    return roundWinner
+}
+
+console.log(playRound('scissors', 'paper'))
