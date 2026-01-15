@@ -80,7 +80,7 @@ function playGame(numberOfRound=5) {
     let roundWinner; 
     let gameWinner;
 
-    console.log(`Welcome to rock, paper, scissors game, let\s go for ${numberOfRound} rounds !`)
+    console.log(`Welcome to rock, paper, scissors game, let\'s go for ${numberOfRound} rounds !`)
     for (let finishedRounds = 0; finishedRounds < numberOfRound; finishedRounds++) {
         roundWinner = playRound();
 
@@ -104,8 +104,8 @@ function playGame(numberOfRound=5) {
         gameWinner = 'You';
     }
 
-    scoreMessage = `After ${numberOfRound} rounds: Computer score: ${score['computerScore'] }, Your score ${score['humanScore']}.`;
-    winnerMessage = `${gameWinner} won !`;
+    const scoreMessage = `After ${numberOfRound} rounds: Computer score: ${score['computerScore'] }, Your score ${score['humanScore']}.`;
+    const winnerMessage = `${gameWinner} won !`;
 
     return console.log(scoreMessage + ' ' + winnerMessage)
 }
