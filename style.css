@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    background-color: wheat;
+    padding: 15px;
+    border-bottom: 5px solid rgb(41, 165, 173);
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    background-color: rgb(41, 165, 173);
+}
+
+.content-container {
+    flex: 1;
+    background-color: lightgrey;
+    border: 1px solid grey;
+    border-radius: 1em;
+    width: 80%;
+    margin-block: 30px;
+}
+
+.copywright-container p {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Pixelify Sans", sans-serif;
+    margin: 0;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.logo-container {
+    width: 100%;
+    text-align: center;
+}
+
+.logo-subtext-container p {
+    font-size: 36px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 0;
+}
+
