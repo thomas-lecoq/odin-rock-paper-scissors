@@ -56,7 +56,7 @@ footer {
     margin: 0;
 }
 
-.general-buttons {
+.game-button-start {
     flex: 1;
     border-radius: 10px;
     background-color: brown;
@@ -65,7 +65,7 @@ footer {
     font-family: "Pixelify Sans", sans-serif;
 }
 
-.general-buttons:hover {
+.game-button-start:hover {
     background-color: rgb(165, 78, 78);
 }
 
@@ -86,21 +86,32 @@ footer {
     100% { transform: translateX(0); }                   
 }
 
-.general-buttons.blinking.shaking {                   
+.game-buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.game-button {
+    flex: 1;
+    font-family: "Pixelify Sans", sans-serif;
+
+}
+
+.game-button-start.blinking.shaking {                   
       animation: blink 0.2s ease-in-out 3,
       shake 0.2s ease-in 3;                  
 }
 
-.general-functions-container {
+.controls-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    width: 300px;
+    width: 250px;
     height: 50px;
-    gap: 10px;
+    gap: 5px;
     margin: 15px;
-    padding-inline: 10px;
-    padding-block: 5px;
 }
 
 .logo {

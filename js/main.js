@@ -1,8 +1,9 @@
-import { playSound, shakeAndBlink } from './animation.js';
+import { playSound, animateButton, displayGameCommand } from './animation.js';
 
-const startButton = document.querySelector('.general-buttons');
+const startButton = document.querySelector('.game-button-start');
 
 startButton.addEventListener('click', () => {
-    playSound('startGame');
-    shakeAndBlink(startButton);
+    playSound('gameStart');
+    animateButton(startButton);
+    displayGameCommand();
 });
