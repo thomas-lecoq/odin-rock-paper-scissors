@@ -1,21 +1,17 @@
-// track the game score
 let score = {"computerScore": 0, "humanScore": 0};
 
-// compute random integer
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-// Calculates the machine choice.
-function getComputerChoice() {
+export function getComputerChoice() {
     const CHOICES = ['rock', 'paper', 'scissors'];
     const choiceIndex = getRandomInt(3);
-    
+
     return CHOICES[choiceIndex]
 }
 
-// Calculates the human choice.
-function getHumanChoice() {
+export function getHumanChoice() {
     const CHOICES = {"1": 'rock', "2": 'paper', "3": 'scissors'};
 
     let choiceIndex;
@@ -33,8 +29,7 @@ function getHumanChoice() {
     return CHOICES[choiceIndex]
 }
 
-// plays a single round
-function playRound(computerChoice=getComputerChoice(), humanChoice=getHumanChoice()) {
+export function playRound(computerChoice=getComputerChoice(), humanChoice=getHumanChoice()) {
 
     let roundWinner;
     switch(true) {
@@ -70,14 +65,13 @@ function playRound(computerChoice=getComputerChoice(), humanChoice=getHumanChoic
         console.log(`You said ${humanChoice}, computer said ${computerChoice} - ${roundWinner} win this round !`);
 
     }
-    
+
     return roundWinner
 }
 
-// play the whole game with a predefined number of 5 rounds
-function playGame(numberOfRound=5) {
+export function playGame(numberOfRound=5) {
 
-    let roundWinner; 
+    let roundWinner;
     let gameWinner;
 
     console.log(`Welcome to rock, paper, scissors game, let\'s go for ${numberOfRound} rounds !`)
@@ -109,6 +103,3 @@ function playGame(numberOfRound=5) {
 
     return console.log(scoreMessage + ' ' + winnerMessage)
 }
-
-// run the game in console
-playGame()
