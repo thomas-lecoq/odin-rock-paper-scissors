@@ -20,7 +20,7 @@ header {
     min-height: 150px;
     background-color: wheat;
     padding: 15px;
-    border-bottom: 5px solid rgb(41, 165, 173);
+    border-bottom: 5px solid rgb(99, 195, 202);
 }
 
 main {
@@ -37,7 +37,7 @@ footer {
     justify-content: center;
     align-items: center;
     min-height: 100px;
-    background-color: rgb(41, 165, 173);
+    background-color: rgb(99, 195, 202);
 }
 
 .content-container {
@@ -45,8 +45,8 @@ footer {
     background-color: lightgrey;
     border: 1px solid grey;
     border-radius: 1em;
-    width: 80%;
-    margin-block: 30px;
+    width: 750px;
+    margin-block: 25px;
 }
 
 .copywright-container p {
@@ -54,6 +54,53 @@ footer {
     font-weight: 700;
     font-family: "Pixelify Sans", sans-serif;
     margin: 0;
+}
+
+.general-buttons {
+    flex: 1;
+    border-radius: 10px;
+    background-color: brown;
+    font-size: 24px;
+    color: wheat;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.general-buttons:hover {
+    background-color: rgb(165, 78, 78);
+}
+
+
+@keyframes blink {                            
+    0%, 100% { background-color: brown; }
+    50%      { background-color: rgb(0, 0, 0); }    
+}
+
+@keyframes shake {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(-5px); }
+    26%  { transform: translateY(-5px); }              
+    50%  { transform: translateX(5px); }
+    51%  { transform: translateY(5px); } 
+    75%  { transform: translateX(-5px); }
+    76%  { transform: translateY(-5px); }          
+    100% { transform: translateX(0); }                   
+}
+
+.general-buttons.blinking.shaking {                   
+      animation: blink 0.2s ease-in-out 3,
+      shake 0.2s ease-in 3;                  
+}
+
+.general-functions-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 300px;
+    height: 50px;
+    gap: 10px;
+    margin: 15px;
+    padding-inline: 10px;
+    padding-block: 5px;
 }
 
 .logo {
