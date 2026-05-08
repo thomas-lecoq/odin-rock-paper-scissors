@@ -1,9 +1,9 @@
-import { playSound, animateButton, displayGameCommand } from './animation.js';
+import { playButtonFeedback } from './menu-animation.js';
+import { setGameCommand } from './game-command.js';
 
 const startButton = document.querySelector('.game-button-start');
 
 startButton.addEventListener('click', () => {
-    playSound('gameStart');
-    animateButton(startButton);
-    displayGameCommand();
+    playButtonFeedback('gameStart', startButton);
+    setGameCommand();
 });

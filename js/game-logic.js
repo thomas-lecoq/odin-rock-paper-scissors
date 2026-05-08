@@ -11,25 +11,7 @@ export function getComputerChoice() {
     return CHOICES[choiceIndex]
 }
 
-export function getHumanChoice() {
-    const CHOICES = {"1": 'rock', "2": 'paper', "3": 'scissors'};
-
-    let choiceIndex;
-    let continueChoiceLoop = true;
-
-    while (continueChoiceLoop === true) {
-        choiceIndex = prompt("1- rock, 2- paper, 3-scissors: make your selection (type 1, 2 or 3)");
-
-        if (choiceIndex in CHOICES){
-            continueChoiceLoop = false;
-        } else {
-            console.log("Please select an available option (1, 2, 3).");
-        }
-    }
-    return CHOICES[choiceIndex]
-}
-
-export function playRound(computerChoice=getComputerChoice(), humanChoice=getHumanChoice()) {
+export function playRound(computerChoice=getComputerChoice(), humanChoice) {
 
     let roundWinner;
     switch(true) {
