@@ -11,7 +11,7 @@ export function getComputerChoice() {
     return CHOICES[choiceIndex]
 }
 
-export function playRound(computerChoice=getComputerChoice(), humanChoice) {
+export function playRound(humanChoice, computerChoice=getComputerChoice()) {
 
     let roundWinner;
     switch(true) {
