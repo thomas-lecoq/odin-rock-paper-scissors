@@ -19,14 +19,14 @@ function animateButton(element) {
 
 function displayGameCommand() {
     const buttonClass = 'game-button';
+    const choices = ['rock', 'paper', 'scissors'];
     const container = document.querySelector('.game-buttons-container');
     const existingButtons = container.querySelectorAll(buttonClass)
-    const choices = ['rock', 'paper', 'scissors'];
-
+    
     // if buttons already exists, do nothing
     if (existingButtons.length > 0) return;
 
-    // clear existing content of .game-buttons-container and add button
+    // clear existing content of .game-buttons-container and add new content
     container.innerHTML = '';
     choices.forEach(choice => {
         const button = document.createElement('button');
