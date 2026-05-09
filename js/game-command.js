@@ -76,4 +76,12 @@ function setScoreCounter() {
     });
 }
 
-export { setGameCommand, setScoreCounter };
+function clearGameContent() {
+    const gameContentContainerClass = 'game-content-container';
+    const gameContentContainer = document.querySelector(`.${gameContentContainerClass}`);
+    gameContentContainer.innerHTML = '';
+
+    return
+}
+
+export { setGameCommand, setScoreCounter, clearGameContent};

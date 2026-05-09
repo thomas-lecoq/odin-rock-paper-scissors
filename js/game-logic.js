@@ -1,3 +1,5 @@
+import { clearGameContent } from "./game-command.js";
+
 let score = {"computerScore": 0, "humanScore": 0};
 
 function getRandomInt(max) {
