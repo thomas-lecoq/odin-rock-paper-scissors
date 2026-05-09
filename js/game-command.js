@@ -23,7 +23,6 @@ function setGameCommand() {
 
 
 function setScoreCounter() {
-
     // create a generic score containers with a title and value
     const gameControlsContainerClass = 'game-controls-container';
     const scoreContainerClass = 'game-score-container';
@@ -75,7 +74,6 @@ function setScoreCounter() {
             break;
         }
     });
-
 }
 
 export { setGameCommand, setScoreCounter };

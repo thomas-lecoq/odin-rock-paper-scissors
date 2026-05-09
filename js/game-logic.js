@@ -83,17 +83,6 @@ export function playRound(humanChoice, computerChoice=getComputerChoice()) {
     // append round container to game content container
     gameContentContainer.appendChild(roundChoicesContainer);
 
-
-    /* logic to add here
-    each click on a button plays a round -> ok done
-    when a round is played : main content should show what play was done per contender on a card
-    the contender who lost should be displayed in grey, the winner in green
-    the number of round should be tracked (5 round each time)
-    once the number of round reach 5 : display the winner
-    any new click on a choice restart the game
-    playgame function may need to be rewrite
-    */
-
     return roundWinner
 }
 
@@ -121,11 +110,18 @@ export function playGame(numberOfRound=5) {
     } else if (score['computerScore'] > score['humanScore']) {
         gameWinner = 'Computer';
     } else {
-        gameWinner = 'You';
+        gameWinner = 'Human';
     }
 
-    const scoreMessage = `After ${numberOfRound} rounds: Computer score: ${score['computerScore'] }, Your score ${score['humanScore']}.`;
-    const winnerMessage = `${gameWinner} won !`;
+    /* logic to add here
+    each click on a button plays a round -> ok done
+    --> playround may need to be move somewhere else
 
-    return console.log(scoreMessage + ' ' + winnerMessage)
+    any round played increase a contender score unless it's a tie
+
+    the number of round should be tracked (5 round each time)
+    once the number of round reach 5 : display the winner at the bottom
+
+    any new click on a choice or on start new game reset the game (score, content)
+    */
 }
