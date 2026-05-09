@@ -48,6 +48,16 @@ export function playRound(humanChoice, computerChoice=getComputerChoice()) {
 
     }
 
+    /* logic to add here
+    each click on a button plays a round -> ok done
+    when a round is played : main content should show what play was done per contender on a card
+    the contender who lost should be displayed in grey, the winner in green
+    the number of round should be tracked (5 round each time)
+    once the number of round reach 5 : display the winner
+    any new click on a choice restart the game
+    playgame function may need to be rewrite
+    */
+
     return roundWinner
 }
 
