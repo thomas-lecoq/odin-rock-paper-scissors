@@ -42,7 +42,7 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: baseline;
     align-items: center;
     background-color: wheat;
 }
@@ -53,25 +53,6 @@ footer {
     align-items: center;
     min-height: 100px;
     background-color: rgb(99, 195, 202);
-}
-
-.content-container {
-    flex: 1;
-    background-color: lightgrey;
-    border: 1px solid grey;
-    border-radius: 1em;
-    width: 750px;
-    margin-block: 25px;
-}
-
-.controls-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 250px;
-    gap: 5px;
-    margin: 15px;
-    height: 80px;
 }
 
 .copywright-container p {
@@ -114,6 +95,36 @@ footer {
       shake 0.2s ease-in 3;                  
 }
 
+.game-content-container {
+    flex: 1;
+    background-color: lightgrey;
+    border: 1px solid grey;
+    border-radius: 1em;
+    width: 750px;
+    margin-block: 25px;
+}
+
+.game-controls-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 250px;
+    gap: 5px;
+    margin: 15px;
+    height: 80px;
+    border: 1px solid red;
+}
+
+.game-ui-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 750px;
+    margin: 0;
+    border: 1px solid blue;
+}
+
 .logo {
     width: 200px;
     height: auto;
@@ -131,4 +142,3 @@ footer {
     text-decoration: underline;
     margin: 0;
 }
-

@@ -5,10 +5,10 @@ function getRandomInt(max) {
 }
 
 export function getComputerChoice() {
-    const CHOICES = ['rock', 'paper', 'scissors'];
+    const choices = ['rock', 'paper', 'scissors'];
     const choiceIndex = getRandomInt(3);
 
-    return CHOICES[choiceIndex]
+    return choices[choiceIndex]
 }
 
 export function playRound(humanChoice, computerChoice=getComputerChoice()) {
@@ -55,8 +55,6 @@ export function playGame(numberOfRound=5) {
 
     let roundWinner;
     let gameWinner;
-
-    console.log(`Welcome to rock, paper, scissors game, let\'s go for ${numberOfRound} rounds !`)
     for (let finishedRounds = 0; finishedRounds < numberOfRound; finishedRounds++) {
         roundWinner = playRound();
 
