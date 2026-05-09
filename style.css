@@ -26,6 +26,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: "Pixelify Sans", sans-serif;
 }
 
 header {
@@ -55,27 +56,29 @@ footer {
     background-color: rgb(99, 195, 202);
 }
 
+.card-label {
+    font-size: 18px;
+    margin: 0;
+}
+
 .copywright-container p {
     font-size: 16px;
     font-weight: 700;
-    font-family: "Pixelify Sans", sans-serif;
     margin: 0;
 }
 
 .game-button-start {
-    /* flex: 1; */
     border-radius: 10px;
     background-color: brown;
     font-size: 24px;
+    font-family: inherit;
     color: wheat;
-    font-family: "Pixelify Sans", sans-serif;
     min-height: 50px;
 }
 
 .game-button-start:hover {
     background-color: rgb(165, 78, 78);
 }
-
 
 .game-buttons-container {
     display: flex;
@@ -86,8 +89,7 @@ footer {
 
 .game-button {
     flex: 1;
-    font-family: "Pixelify Sans", sans-serif;
-
+    font-family: inherit;
 }
 
 .game-button-start.blinking.shaking {                   
@@ -96,9 +98,7 @@ footer {
 }
 
 .game-content-container {
-    flex: 1;
     background-color: lightgrey;
-    border: 1px solid grey;
     border-radius: 1em;
     width: 750px;
     margin-block: 25px;
@@ -119,7 +119,6 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "Pixelify Sans", sans-serif;
     width: 150px;
     color:wheat;
     background-color: rgb(72, 154, 160);
@@ -136,6 +135,16 @@ footer {
     margin: 0;
 }
 
+.human-choice-card,
+.computer-choice-card,
+.round-winner-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo {
     width: 200px;
     height: auto;
@@ -148,8 +157,15 @@ footer {
 
 .logo-subtext-container p {
     font-size: 36px;
-    font-family: "Pixelify Sans", sans-serif;
     font-weight: 700;
     text-decoration: underline;
     margin: 0;
+}
+
+.round-choices-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    border-radius: 10px;
 }

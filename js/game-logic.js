@@ -13,6 +13,7 @@ export function getComputerChoice() {
 
 export function playRound(humanChoice, computerChoice=getComputerChoice()) {
 
+    // define who won this round
     let roundWinner;
     switch(true) {
         case computerChoice === humanChoice:
@@ -41,12 +42,47 @@ export function playRound(humanChoice, computerChoice=getComputerChoice()) {
             break;
     }
 
-    if (roundWinner === 'Tie') {
-        console.log(`You said ${humanChoice}, computer said ${computerChoice} - it\'s a tie !`);
-    } else {
-        console.log(`You said ${humanChoice}, computer said ${computerChoice} - ${roundWinner} win this round !`);
+    // display the game content base on who won this round
+    const gameContentContainerClass = 'game-content-container';
+    const gameContentContainer = document.querySelector(`.${gameContentContainerClass}`);
 
-    }
+    const roundChoicesContainerClass = 'round-choices-container';
+    const roundChoicesContainer = document.createElement('div');
+    roundChoicesContainer.classList.add(roundChoicesContainerClass);
+
+    // define a function expression that assign content to card base on contenders plays
+    const makeCard = (className, label, value) => {
+        const card = document.createElement('div');
+        card.classList.add(className);
+
+        const labelEl = document.createElement('p');
+        labelEl.classList.add('card-label');
+        labelEl.textContent = label;
+        card.appendChild(labelEl);
+
+        if (value !== undefined) {
+            const valueEl = document.createElement('p');
+            valueEl.textContent = value;
+            card.appendChild(valueEl);
+        }
+
+        return card;
+    };
+
+    // Create the card and their content
+    const [humanChoiceCard, computerChoiceCard, roundWinnerCard] = [
+        ['human-choice-card',    'Player move:',      humanChoice],
+        ['computer-choice-card', 'Computer move:', computerChoice],
+        ['round-winner-card',    roundWinner == 'Tie' ? 'Tie': `${roundWinner} won`],
+    ].map(args => makeCard(...args));
+
+
+    // append cards div to roundChoicesContainer
+    roundChoicesContainer.append(humanChoiceCard, computerChoiceCard, roundWinnerCard);
+
+    // append round container to game content container
+    gameContentContainer.appendChild(roundChoicesContainer);
+
 
     /* logic to add here
     each click on a button plays a round -> ok done
