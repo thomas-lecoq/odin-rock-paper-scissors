@@ -2,8 +2,9 @@ import { playRound } from "./game-logic.js";
 
 function setGameCommand() {
     const buttonClass = 'game-button';
+    const containerClass = 'game-buttons-container';
     const choices = ['rock', 'paper', 'scissors'];
-    const container = document.querySelector('.game-buttons-container');
+    const container = document.querySelector(`.${containerClass}`);
     const existingButtons = container.querySelectorAll(`.${buttonClass}`)
     
     // if buttons already exists, do nothing
@@ -28,7 +29,17 @@ function setScoreCounter() {
     const scoreContainerClass = 'game-score-container';
     const scoreCounterNameClass = 'game-score-counter-name';
     const scoreCounterValueClass = 'game-score-counter-value';
-    const gameControlsContainer = document.querySelector(`.${gameControlsContainerClass}`); 
+    const gameControlsContainer = document.querySelector(`.${gameControlsContainerClass}`);
+
+
+    // if score containers already exists, reset them
+    const existingScoreCounterValues = document.querySelectorAll(`.${scoreCounterValueClass}`)
+    if (existingScoreCounterValues.length > 0) {
+        existingScoreCounterValues.forEach(scoreValues => {
+            scoreValues.textContent = 0;
+        });
+        return;
+    }
 
     const genericScoreContainer = document.createElement('div');
     genericScoreContainer.classList.add(scoreContainerClass);
@@ -47,7 +58,6 @@ function setScoreCounter() {
     contenderArr.forEach(contender => {
         const specificScoreContainer = genericScoreContainer.cloneNode(true);
         specificScoreContainer.classList.add(contender);
-
         const specificScoreCounterName = specificScoreContainer.querySelector(`.${scoreCounterNameClass}`);
         const specificScoreCounterValue = specificScoreContainer.querySelector(`.${scoreCounterValueClass}`);
 
