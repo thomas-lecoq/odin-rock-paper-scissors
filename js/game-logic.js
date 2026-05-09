@@ -1,12 +1,14 @@
-import { clearGameContent } from "./game-command.js";
+import { clearGameContent, resetDisplayedScores, incrementDisplayedScore } from "./game-command.js";
 
 let score = {"computerScore": 0, "humanScore": 0};
+let roundsPlayed = 0;
+const totalRounds = 5;
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-export function getComputerChoice() {
+function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     const choiceIndex = getRandomInt(3);
 
@@ -88,42 +90,56 @@ export function playRound(humanChoice, computerChoice=getComputerChoice()) {
     return roundWinner
 }
 
-export function playGame(numberOfRound=5) {
+function resetScores() {
+    score.computerScore = 0;
+    score.humanScore = 0;
+    roundsPlayed = 0;
+    resetDisplayedScores();
 
-    let roundWinner;
-    let gameWinner;
-    for (let finishedRounds = 0; finishedRounds < numberOfRound; finishedRounds++) {
-        roundWinner = playRound();
+    return
+}
 
-        switch(roundWinner) {
-            case 'Tie':
-                break;
-            case 'Computer':
-                score["computerScore"]++;
-                break;
-            case 'Human':
-                score["humanScore"]++;
-                break;
+export function handleRound(humanChoice) {
+
+    // reset the game if player keep pressing choices
+    if (roundsPlayed >= totalRounds) {
+        clearGameContent();
+        resetScores();
+    }
+
+    // increase scores base on winning contender
+    const roundWinner = playRound(humanChoice);
+    switch(roundWinner) {
+        case 'Computer':
+            score.computerScore++;
+            incrementDisplayedScore('Computer');
+            break;
+        case 'Human':
+            score.humanScore++;
+            incrementDisplayedScore('Human');
+            break;
+    }
+    roundsPlayed++;
+
+    // handle endgame and display winner
+    const gameWinnerNameClass = 'game-winner-name';
+    const gameContentContainerClass = 'game-content-container';
+
+    const gameWinnerName = document.createElement('p');
+    gameWinnerName.classList.add(gameWinnerNameClass);
+    const gameContentContainer = document.querySelector(`.${gameContentContainerClass}`);
+
+    if (roundsPlayed === totalRounds) {
+        let gameWinner;
+        if (score.computerScore === score.humanScore) {
+            gameWinner = 'Nobody';
+        } else if (score.computerScore > score.humanScore) {
+            gameWinner = 'Computer';
+        } else {
+            gameWinner = 'You';
         }
+                
+        gameWinnerName.textContent = `${gameWinner} won the game !`;
+        gameContentContainer.appendChild(gameWinnerName);
     }
-
-    if (score['computerScore'] === score['humanScore']) {
-        gameWinner = 'Nobody';
-    } else if (score['computerScore'] > score['humanScore']) {
-        gameWinner = 'Computer';
-    } else {
-        gameWinner = 'Human';
-    }
-
-    /* logic to add here
-    each click on a button plays a round -> ok done
-    --> playround may need to be move somewhere else
-
-    any round played increase a contender score unless it's a tie
-
-    the number of round should be tracked (5 round each time)
-    once the number of round reach 5 : display the winner at the bottom
-
-    any new click on a choice or on start new game reset the game (score, content)
-    */
 }

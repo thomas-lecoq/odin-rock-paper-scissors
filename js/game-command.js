@@ -1,4 +1,4 @@
-import { playRound } from "./game-logic.js";
+import { handleRound } from "./game-logic.js";
 
 function setGameCommand() {
     const buttonClass = 'game-button';
@@ -16,7 +16,7 @@ function setGameCommand() {
         const button = document.createElement('button');
         button.classList.add(buttonClass);
         button.textContent = choice;
-        button.addEventListener('click', () => playRound(choice));
+        button.addEventListener('click', () => handleRound(choice));
         container.appendChild(button)
     });
 };
@@ -84,4 +84,33 @@ function clearGameContent() {
     return
 }
 
-export { setGameCommand, setScoreCounter, clearGameContent};
+function resetDisplayedScores() {
+    const scoreCounterValueClass = 'game-score-counter-value';
+    const scoreCounterValueNodeList = document.querySelectorAll(`.${scoreCounterValueClass}`);
+
+    scoreCounterValueNodeList.forEach(value => {
+        value.textContent = 0;
+    });
+
+    return
+}
+
+function incrementDisplayedScore(contender) {
+    const playerScoreCounterValueClass = '.game-score-container.player .game-score-counter-value';
+    const computerScoreCounterValueClass = '.game-score-container.computer .game-score-counter-value';
+    const playerScoreCounterValue = document.querySelector(playerScoreCounterValueClass);
+    const computerScoreCounterValue = document.querySelector(computerScoreCounterValueClass);
+
+    switch (contender) {
+        case 'Human':
+            playerScoreCounterValue.textContent = Number(playerScoreCounterValue.textContent) + 1; 
+            break;
+        case 'Computer':
+            computerScoreCounterValue.textContent = Number(computerScoreCounterValue.textContent) + 1; 
+            break;
+    }
+
+    return
+}
+
+export { setGameCommand, setScoreCounter, clearGameContent, resetDisplayedScores, incrementDisplayedScore};
